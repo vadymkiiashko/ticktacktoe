@@ -26,8 +26,7 @@ const Footer = () => {
               <span>player's turn</span> 
               </>  
                 :
-             <button className='start' onClick={()=>dispatch(startGame())}> new game </button>
-         
+                <button className='start' onClick={()=>dispatch(startGame())}> new game </button>
       }
     </div>
   )

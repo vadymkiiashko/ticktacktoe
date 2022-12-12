@@ -10,16 +10,20 @@
 .header {
     
     @include header-footer;
+    position: relative;
     span {
         color:  $text-color;
         text-decoration: none;
         text-transform: uppercase;
-        position: relative;
         order: 0;
+
+        
         }
 
     .abort{
         @include button;
+        position: absolute;
+        right: 0;
         background-color : transparent;
         color: $abort-button;    
         text-decoration: underline;

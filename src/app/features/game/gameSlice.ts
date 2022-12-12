@@ -72,6 +72,8 @@ interface GameState {
           state.winner = ''
         } , 
       startGame : (state) => {
+        state.board = new Array(3).fill(new Array(3).fill(''))
+        state.winner = ''
         state.player ='x'
       } 
       

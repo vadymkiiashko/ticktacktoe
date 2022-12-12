@@ -10,7 +10,9 @@ const Header = () => {
     const dispatch = useAppDispatch()
   return (
     <div className="header">
-      <span > tick tack</span>
+      
+        <span> tick tack</span>
+      
       {
         player !=='' ? <button className='abort' onClick={()=>dispatch(abortGame())}>abort</button> :''
       }
