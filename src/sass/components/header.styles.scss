@@ -1,0 +1,27 @@
+@import '../variables.scss';
+@import './mixins/header-footer.scss';
+@import '../components/mixins/buttons.style.scss';
+
+
+
+
+
+ 
+.header {
+    
+    @include header-footer;
+    span {
+        color:  $text-color;
+        text-decoration: none;
+        text-transform: uppercase;
+        position: relative;
+        order: 0;
+        }
+
+    .abort{
+        @include button;
+        background-color : transparent;
+        color: $abort-button;    
+        text-decoration: underline;
+        }
+}

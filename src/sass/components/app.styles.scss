@@ -1,0 +1,19 @@
+@import '../variables.scss';
+
+.app {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 0px 1em 0.5em $text-color;
+    background-color: $background-color;
+    height: $height;
+    width: $width;
+    
+    .app-container {
+        background-color: $main-background;    
+    }
+}
+.app-active {
+    background-color: $active-background;
+}

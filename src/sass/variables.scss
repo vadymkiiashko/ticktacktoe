@@ -1,0 +1,14 @@
+$background-color : #F8F8F8;
+$border-color : #E7E7EA;
+$abort-button : #E59AC8;
+$start-button : #21C3A8;
+$text-color : #B2B2BE;
+$main-background : #ECECEE; 
+$o-color : #73DCE6;
+$x-color :#3A3B63;
+$active-background :#8A85BD;
+$active-border :#746FA7;
+
+$height : calc(100vh/4 *3);
+$header-footer-height : calc($height/10);
+$width : calc($height - 2*$header-footer-height);

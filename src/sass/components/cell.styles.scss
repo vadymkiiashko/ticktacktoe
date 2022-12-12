@@ -1,0 +1,26 @@
+@import '../variables.scss';
+
+.cell {
+    display :flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+    border-bottom : solid $border-color 0.5em; 
+    border-left : solid $border-color 0.5em;  
+    z-index: 3;
+  
+    &:nth-child(3n+1) {
+    border-left : transparent ;
+    }
+  
+    &:nth-child(n+7) {
+    border-bottom : transparent ;
+  }
+}
+.game {
+  background-color: $active-background;
+  border-color: $active-border;
+
+}
+  

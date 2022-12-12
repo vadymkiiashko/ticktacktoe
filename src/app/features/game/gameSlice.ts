@@ -4,16 +4,43 @@ import type { RootState } from '../../store'
 
 interface GameState {
     board: string[][],
-    player : string,
+    player : string ,
+    winner : null | string
   }
   
   const initialState: GameState = {
     board: new Array(3).fill(new Array(3).fill('')),
-    player : 'x' ,
+    player : '' ,
+    winner : ''
   }
 
+  const checkDiagonals = (board : string[][]  , player : string) => {
+      if(
+          board[0][0] === board[1][1] && board[1][1] === board[2][2] && board[2][2] === player||
+          board[0][2] === board[1][1] && board[1][1] ===  board[2][0] && board[2][0] === player
+      ) return true 
 
-  
+      return false
+  }
+
+  const isVictory = (board : string[][] , indexRow : number , index : number , player : string) => {
+    //check row 
+    if ( board[indexRow].filter(element => element === player).length ===3) return true
+    // check column
+    let column :[] =[]
+        for (let i = 0; i < 3; i++) {
+            if(board[i][index] !== player) 
+            break
+            column.push(player)
+        }
+    if(column.length === 3) return true
+    //checkDiagonals
+    return checkDiagonals(board, player)    
+  }
+
+  const isDraw =  (board : string[][] ) => {
+    return !board.map(row=>row.includes('')).includes(true)
+  }
 
   export const gameSlice = createSlice({
     name: 'game',
@@ -21,18 +48,38 @@ interface GameState {
     reducers: {
       markCell: (state, action: PayloadAction<{indexRow: number , index : number}>) => {
         const {indexRow , index  } = action.payload
-        state.board[indexRow][index] = state.player;
-        state.player === 'x' ? 'o' : 'x' 
-        //togglePlayer()
+        if( state.board[indexRow][index] !== '') return
+        state.board[indexRow][index] = state.player || ''
+        //check for victory 
+        if(isVictory (state.board , indexRow , index , state.player)){
+          state.winner = state. player
+          return
+        }      
+        //check for awaliable moves
+        if (isDraw(state.board)) {
+          state.winner = 'xy'
+          return
+        }
+        //togglePlayer
+        state.player = state.player === 'x' ? 'o' : 'x' 
       },
       toggleplayer : (state) => {
           state.player === 'x' ? 'y' : 'x' 
       },
+      abortGame : (state) => {
+        state.board = new Array(3).fill(new Array(3).fill(''))
+        state.player = '' 
+          state.winner = ''
+        } , 
+      startGame : (state) => {
+        state.player ='x'
+      } 
+      
     },
   })
   
 
-  export const { markCell } = gameSlice.actions
+  export const { markCell , abortGame , startGame} = gameSlice.actions
   export const selectCount = (state: RootState) => state.game.board
 
 

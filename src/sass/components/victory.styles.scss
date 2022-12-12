@@ -1,0 +1,21 @@
+@import '../variables.scss';
+
+.victory {
+    background-color: $main-background;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: $width;
+    height:  calc($height - calc(2*($height)/10) );
+    text-transform: uppercase;
+    color: $text-color;
+    .player-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: calc($height/3);
+        height: calc($height/3);
+    }
+    
+}

@@ -1,0 +1,49 @@
+@import '../variables.scss';
+.x{
+    width:100%;
+    height : 100%;
+    position: relative;
+    
+
+    &:before,&:after{
+        content:'';
+        position:absolute;
+        top: 50%;
+        right:15%;
+        width:5em;
+        height:1em;
+        background-color:$x-color;
+        border-radius: 50%;
+    }
+
+    
+
+    &:before{
+    -webkit-transform:rotate(45deg);
+    -moz-transform:rotate(45deg);
+    transform:rotate(45deg);
+    
+    }
+    &:after{
+    -webkit-transform:rotate(-45deg);
+    -moz-transform:rotate(-45deg);
+    transform:rotate(-45deg);
+    
+    }
+
+
+}
+
+.x-token-footer {
+    height: $header-footer-height;
+    width: $header-footer-height;
+&:before,&:after{
+    content:'';
+    width:100%;
+    height:0.5em;
+    top: 50%;
+    right: 40%
+    
+}
+
+}

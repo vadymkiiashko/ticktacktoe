@@ -1,0 +1,11 @@
+@import '../../variables.scss';
+
+@mixin header-footer {
+    color: $text-color;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: $header-footer-height;
+    width: $width;
+}

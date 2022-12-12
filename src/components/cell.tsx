@@ -1,19 +1,20 @@
 import React from 'react'
 import { markCell } from '../app/features/game/gameSlice'
-import { useAppDispatch } from '../app/hooks'
-import O from './O'
-import X from './X'
+import { useAppDispatch , useAppSelector } from '../app/hooks'
+import Token from './Token'
+import '../sass/components/cell.styles.scss'
 
 type CellProps = { indexRow : number , index : number , element :string}
 
 const Cell :React.FC<CellProps> = ({indexRow , index , element} ) => {
-    
+    const { winner, player } = useAppSelector((state) => state.game)
     const dispatch = useAppDispatch()    
     return (
-        <div  className='cell' onClick={ element === '' ? ()=>dispatch(markCell({indexRow , index })) : ()=>{}}> 
+        <div  className={`cell ${player ? 'game' : ''}`} onClick={ player !== '' ? ()=>dispatch(markCell({indexRow , index })) : ()=>{}}> 
         {
                 element ==='' ? '' : 
-                    element === 'x' ?  <X /> : <O />                 
+                    <Token sign ={`${element === 'x' ?'x' :'o'}`} purpose={`${element === 'x' ?'' :'o-game'}`}/>
+                                  
         }
         </div>
     )

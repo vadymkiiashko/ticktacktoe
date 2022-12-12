@@ -1,0 +1,16 @@
+@import '../variables.scss';
+@import './mixins/header-footer.scss';
+@import '../components/mixins/buttons.style.scss';
+
+.footer {
+    @include header-footer;
+
+    .start {
+        @include button;
+        background-color: $start-button;
+        border-radius: 3em;
+        padding: 0.5em 3em;
+        color: $background-color;
+    }
+   
+}

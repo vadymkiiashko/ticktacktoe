@@ -1,0 +1,12 @@
+@import '../../variables.scss';
+
+@mixin button {
+    text-transform: uppercase;
+   
+    .start {
+        background-color: $start-button;
+        height: 3em;
+        border-radius: 0.5em;
+        color: $background-color;
+    }
+}
